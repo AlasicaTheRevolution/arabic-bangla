@@ -1,0 +1,10 @@
+.is-sticky {
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    box-shadow: 0px 16px 48px #2727271a;
+    background-color: #ffffff !important;
+    transition: all;
+    transition-duration: .3s;
+  }
+  
