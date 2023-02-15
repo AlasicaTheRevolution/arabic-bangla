@@ -2,9 +2,9 @@ import React from "react";
 
 const Category = () => {
   return (
-    <div className="bg-[#282A35] py-20">
+    <div className="py-20 bg-[#fff]">
       <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-y-0 gap-y-5 lg:px-40 lg:gap-x-16">
-        <div className="card bg-[#FFC0C7] py-5 lg:mx-0 mx-5">
+        <div className="card bg-[#c0ffc6] py-5 lg:mx-0 mx-5">
           <div className="card-body items-center text-center">
             <h2 className="text-black text-[45px] font-sans font-bold uppercase">
               নাহূ
@@ -19,7 +19,7 @@ const Category = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-[#FFF4A3] py-5 lg:mx-0 mx-5">
+        <div className="card bg-[#ccffa3] py-5 lg:mx-0 mx-5">
           <div className="card-body items-center text-center">
             <h2 className="text-black text-[45px] font-sans font-bold uppercase">
               সার্ফ
