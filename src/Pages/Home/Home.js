@@ -24,6 +24,7 @@ function Home() {
         </div>
       </div>
       <Category/>
+      
     </div>
   );
 }
