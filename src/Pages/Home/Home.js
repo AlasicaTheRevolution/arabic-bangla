@@ -12,7 +12,7 @@ function Home() {
             <h1 className="mb-5 lg:text-5xl md:text-3xl text-2xl font-bold text-black bg-white bg-opacity-50 p-10 rounded-xl">
               আরবি ভাষা শিখুন বাংলায়
             </h1>
-            <Link to="/" className="btn btn-primary text-xl text-white px-10">
+            <Link to="/nahu" className="btn btn-primary text-xl text-white px-10">
               শুরু করুন
             </Link>
           </div>
@@ -37,3 +37,7 @@ function Home() {
 }
 
 export default Home;
+
+
+// arabic-admin
+// 9dYPUGIYRJVVnN2m
