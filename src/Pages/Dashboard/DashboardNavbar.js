@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CustomLink from "../CustomLink/CustomLink";
+import { signOut } from "firebase/auth";
+import auth from "../../firebase.init";
 
 const DashboardNavbar = () => {
   return (
@@ -80,9 +82,18 @@ const DashboardNavbar = () => {
           <li className="px-3 font-sans list-none">
             <CustomLink to="/books">Books</CustomLink>
           </li>
+          <li className="font-sans list-none">
+            <button
+              className="btn btn-primary px-10 rounded-full text-white"
+              onClick={() => {
+                signOut(auth);
+              }}
+            >
+              Logout
+            </button>
+          </li>
         </div>
       </div>
-     
     </div>
   );
 };
