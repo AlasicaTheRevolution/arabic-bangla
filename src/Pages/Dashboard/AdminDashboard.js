@@ -1,6 +1,8 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
+import { FaHome, FaRegClone } from "react-icons/fa";
 import DashboardNavbar from "./DashboardNavbar";
+import ActiveLink from "./ActiveLink";
 
 const AdminDashboard = () => {
   return (
@@ -14,15 +16,12 @@ const AdminDashboard = () => {
         <div class="drawer-side">
           <label for="my-drawer-2" class="drawer-overlay"></label>
           <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
-            <hr />
             <li>
-              <Link to="/dashboard">Home</Link>
+              <ActiveLink to="/dashboard"><FaHome/>Home</ActiveLink>
             </li>
-            <hr />
             <li>
-              <Link to="/dashboard/add-subcategory">Add Subcategory</Link>
+              <ActiveLink to="/dashboard/add-subcategory"><FaRegClone/> Add Subcategory</ActiveLink>
             </li>
-            <hr />
           </ul>
         </div>
       </div>
