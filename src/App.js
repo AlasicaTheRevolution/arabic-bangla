@@ -6,10 +6,12 @@ import Nahu from "./Pages/Nahu/Nahu";
 import Dashboard from "./Pages/Dashboard/AdminDashboard";
 import DashboardHome from "./Pages/Dashboard/DashboardHome";
 import AddSubCategory from "./Pages/Dashboard/AddSubCategory";
+import Navbar from "./Pages/Shared/Navbar/Navbar";
 
 function App() {
   return (
     <div>
+      {/* <Navbar/> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
