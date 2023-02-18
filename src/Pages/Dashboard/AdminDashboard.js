@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import { FaHome, FaRegClone } from "react-icons/fa";
 import DashboardNavbar from "./DashboardNavbar";
 
 const AdminDashboard = () => {
@@ -16,11 +17,11 @@ const AdminDashboard = () => {
           <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             <hr />
             <li>
-              <Link to="/dashboard">Home</Link>
+              <Link to="/dashboard"><FaHome/>Home</Link>
             </li>
             <hr />
             <li>
-              <Link to="/dashboard/add-subcategory">Add Subcategory</Link>
+              <Link to="/dashboard/add-subcategory"><FaRegClone/> Add Subcategory</Link>
             </li>
             <hr />
           </ul>

@@ -5,7 +5,7 @@ import CustomLink from "../CustomLink/CustomLink";
 const DashboardNavbar = () => {
   return (
     <div>
-      <div className="navbar py-5 bg-white justify-between">
+      <div className="navbar py-5 bg-[#f5fcf8] justify-between">
         <div>
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
