@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import auth from "../../../firebase.init";
 import CustomLink from "../../CustomLink/CustomLink";
-// import logo from "../../images/logo.png";
 import "./Navbar.css";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+
   // Sticky Menu Area
   useEffect(() => {
     window.addEventListener("scroll", isSticky);
@@ -99,43 +102,17 @@ const Navbar = () => {
             <CustomLink to="/books">Books</CustomLink>
           </li>
         </div>
-      </div>
-      {/* <nav class="navbar navbar-expand-lg navbar-light py-3 fixed">
-        <div class="container">
-          <Link to="/" class="btn btn-ghost text-lg">
-            Arabic Bangla
-          </Link>
-          <button
-            class="navbar-toggler collapsed"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="navbar-collapse justify-content-end collapse"
-            id="navbarNavDropdown"
-          >
-            <ul class="navbar-nav justify-content-end">
-              <li className="nav-item">
-                <CustomLink to="/">Home</CustomLink>
-              </li>
-              <li class="nav-item">
-                <Link to="/ff"
-                  class="nav-link text-dark"
-                  href="#"
-                >
-                  Books
-                </Link>
-              </li>
-            </ul>
-          </div>
+        <div class="navbar-end lg:hidden">
+          {user && (
+            <Link
+              to="/dashboard"
+              class="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
+            >
+              ☰
+            </Link>
+          )}
         </div>
-      </nav> */}
+      </div>
     </div>
   );
 };

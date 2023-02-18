@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import CustomLink from "../CustomLink/CustomLink";
 import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const DashboardNavbar = () => {
+  const [user] = useAuthState(auth);
+
   return (
     <div>
       <div className="navbar py-5 bg-[#f5fcf8] justify-between">
@@ -92,6 +95,16 @@ const DashboardNavbar = () => {
               Logout
             </button>
           </li>
+        </div>
+        <div class="navbar-end lg:hidden">
+          {user && (
+            <label
+              for="my-drawer-2"
+              class="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
+            >
+              ☰
+            </label>
+          )}
         </div>
       </div>
     </div>
