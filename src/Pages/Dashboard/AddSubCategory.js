@@ -8,21 +8,27 @@ const AddSubCategory = () => {
 
     useEffect(() => {
         fetch('http://localhost:5000/categories')
-          .then((response) => response.json())
-          .then((data) => setCategories(data))
-          .catch((error) => console.error(error));
-      }, []);
+            .then((response) => response.json())
+            .then((data) => setCategories(data))
+            .catch((error) => console.error(error));
+    }, []);
 
 
     function handleSubmit(event) {
         event.preventDefault();
-    
+
+        const slug = category.trim().replace(/\s+/g, '-');
+        const lowercaseSlug = slug.toLowerCase();
+        const randomDigits = Math.floor(1000 + Math.random() * 9000);
+        const finalSlug = `${lowercaseSlug}-${randomDigits}`;
+
         const data = {
             category: category,
             subcategory: subcategory,
-            description: description
+            description: description,
+            slug: finalSlug
         };
-    
+
         fetch('http://localhost:5000/sub-category', {
             method: 'POST',
             headers: {
@@ -30,19 +36,20 @@ const AddSubCategory = () => {
             },
             body: JSON.stringify(data)
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-            // Reset form fields after successful submission
-            setCategory("");
-            setSubcategory("");
-            setDescription("");
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Reset form fields after successful submission
+                setCategory("");
+                setSubcategory("");
+                setDescription("");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
-    
+
+
 
     return (
         <div className='w-[600px] mx-auto '>
@@ -52,7 +59,7 @@ const AddSubCategory = () => {
                     <label htmlFor="category" className="block font-medium text-gray-700">
                         Choose Category
                     </label>
-                    
+
                     <select
                         id="category"
                         name="category"
@@ -66,7 +73,7 @@ const AddSubCategory = () => {
                         <option value="balaga">বালাগা</option>
                     </select>
                     <label htmlFor="subcategory" className="block font-medium text-gray-700 mt-4">
-                       Enter a Sub Category
+                        Enter a Sub Category
                     </label>
                     <input
                         type="text"
@@ -77,7 +84,7 @@ const AddSubCategory = () => {
                         onChange={(event) => setSubcategory(event.target.value)}
                     />
                     <label htmlFor="description" className="block font-medium text-gray-700 mt-4">
-                       Enter a Description
+                        Enter a Description
                     </label>
                     <input
                         type="text"
