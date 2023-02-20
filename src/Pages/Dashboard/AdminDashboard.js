@@ -20,6 +20,15 @@ const AdminDashboard = () => {
               <ActiveLink to="/dashboard"><FaHome/>Home</ActiveLink>
             </li>
             <li>
+              <ActiveLink to="/dashboard/nahu">Nahu</ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="/dashboard/sarf">Sarf</ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="/dashboard/balaga">Balaga</ActiveLink>
+            </li>
+            <li>
               <ActiveLink to="/dashboard/add-subcategory"><FaRegClone/> Add Subcategory</ActiveLink>
             </li>
           </ul>
