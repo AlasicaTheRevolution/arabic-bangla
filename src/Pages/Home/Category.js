@@ -28,10 +28,10 @@ const Category = () => {
   return (
     <div className="py-20 bg-[#fff] relative">
       {loading ? (
-        <div class="dots-3 top-0 bottom-0 left-0 right-0 m-auto"></div>
+        <div className="dots-3 top-0 bottom-0 left-0 right-0 m-auto"></div>
       ) : (
         <>
-          <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-y-0 gap-y-5 lg:px-40 lg:gap-x-16">
+          <div className="grid lg:grid-cols-2 grid-cols-1 lg:gap-y-0 gap-y-5 lg:px-40 lg:gap-x-16">
             <div className="card bg-[#c0ffc6] py-5 lg:mx-0 mx-5">
               <div className="card-body items-center text-center">
                 <h2 className="text-black text-[45px] font-sans font-bold uppercase">
@@ -69,7 +69,7 @@ const Category = () => {
               </div>
             </div>
           </div>
-          <div class="gird grid-cols-1 lg:px-40 lg:mt-16 mt-5">
+          <div className="gird grid-cols-1 lg:px-40 lg:mt-16 mt-5">
             <div className="card bg-[#D9EEE1] py-5 lg:mx-0 mx-5">
               <div className="card-body items-center text-center">
                 <h2 className="text-black text-[45px] font-sans font-bold uppercase">

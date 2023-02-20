@@ -102,11 +102,11 @@ const Navbar = () => {
             <CustomLink to="/books">Books</CustomLink>
           </li>
         </div>
-        <div class="navbar-end lg:hidden">
+        <div className="navbar-end lg:hidden">
           {user && (
             <Link
               to="/dashboard"
-              class="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
+              className="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
             >
               ☰
             </Link>

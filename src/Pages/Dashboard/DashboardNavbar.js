@@ -96,11 +96,11 @@ const DashboardNavbar = () => {
             </button>
           </li>
         </div>
-        <div class="navbar-end lg:hidden">
+        <div className="navbar-end lg:hidden">
           {user && (
             <label
-              for="my-drawer-2"
-              class="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
+              htmlFor="my-drawer-2"
+              className="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
             >
               ☰
             </label>

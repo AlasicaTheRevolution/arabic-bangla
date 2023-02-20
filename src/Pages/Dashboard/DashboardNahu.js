@@ -5,11 +5,7 @@ import { toast } from "react-toastify";
 const DashboardNahu = () => {
   const [nahu, setNahu] = useState({});
   const [loading, setLoading] = useState(false);
-  const [changes, setChanges] = useState({
-    name: "",
-    description: "",
-    bgColor: "",
-  });
+  
 
   useEffect(() => {
     const categories = async () => {
