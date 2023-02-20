@@ -9,6 +9,9 @@ import AddSubCategory from "./Pages/Dashboard/AddSubCategory";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./Pages/RequireAuth/RequireAuth";
+import DashboardNahu from "./Pages/Dashboard/DashboardNahu";
+import DashboardSarf from "./Pages/Dashboard/DashboardSarf";
+import DashboardBalaga from "./Pages/Dashboard/DashboardBalaga";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
         >
           <Route index element={<DashboardHome />} />
           <Route path="add-subcategory" element={<AddSubCategory />} />
+          <Route path="nahu" element={<DashboardNahu />} />
+          <Route path="sarf" element={<DashboardSarf />} />
+          <Route path="balaga" element={<DashboardBalaga />} />
         </Route>
       </Routes>
       <ToastContainer
