@@ -12,6 +12,8 @@ import RequireAuth from "./Pages/RequireAuth/RequireAuth";
 import DashboardNahu from "./Pages/Dashboard/DashboardNahu";
 import DashboardSarf from "./Pages/Dashboard/DashboardSarf";
 import DashboardBalaga from "./Pages/Dashboard/DashboardBalaga";
+import Sarf from "./Pages/Sarf/Sarf";
+import Balaga from "./Pages/Balaga/Balaga";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/nahu" element={<Nahu />} />
+        <Route path="/sarf" element={<Sarf />} />
+        <Route path="/balaga" element={<Balaga />} />
         <Route
           path="/dashboard"
           element={
