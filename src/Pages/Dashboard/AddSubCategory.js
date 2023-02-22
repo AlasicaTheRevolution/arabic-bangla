@@ -6,6 +6,7 @@ const AddSubCategory = () => {
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
+  // const [loading, setLoading] = useState(false);
   const slugSpcaRemove = subcategory.toLowerCase().split(" ").join("-");
   const slugQuestionRemove = slugSpcaRemove.split("?").join("");
   const slugSlashRemove =
@@ -45,10 +46,10 @@ const AddSubCategory = () => {
   }
 
   return (
-    <div className="w-[600px] mx-auto ">
+    <div className="max-w-3xl mx-auto">
       <h3 className="text-2xl font-bold mb-3 text-center">Add Sub-category</h3>
-      <div className="px-5 py-10 bg-white border ">
-        <form onSubmit={handleSubmit} className="">
+      <div className="px-5 py-10 bg-white border rounded-lg">
+        <form onSubmit={handleSubmit} className="rounded-lg">
           <label htmlFor="category" className="block font-medium text-gray-700">
             Choose Category
           </label>

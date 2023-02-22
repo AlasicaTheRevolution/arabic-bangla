@@ -20,8 +20,6 @@
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
-    "slate": "^0.91.1",
-    "slate-react": "^0.91.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
