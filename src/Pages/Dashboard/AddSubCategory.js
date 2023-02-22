@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import Editor from "../JoditEditor/JoditEditor";
 
 const AddSubCategory = () => {
+  const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
-  const [description, setDescription] = useState("");
+  const slugSpcaRemove = subcategory.toLowerCase().split(" ").join("-");
+  const slugQuestionRemove = slugSpcaRemove.split("?").join("");
+  const slugSlashRemove =
+    slugQuestionRemove.split("/").join("") +
+    "-" +
+    (Math.random() * 10000).toFixed(0);
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const slug =
-      subcategory.toLowerCase().replace(/\s/g, "-") +
-      "-" +
-      (Math.random() * 10000).toFixed(0);
-
     const data = {
       category: category,
       subcategory: subcategory,
-      description: description,
-      slug: slug,
+      description: value,
+      slug: slugSlashRemove,
     };
 
     fetch("http://localhost:5000/sub-category", {
@@ -30,11 +32,11 @@ const AddSubCategory = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setCategory("");
-        setSubcategory("");
-        setDescription("");
         if (data.acknowledged) {
           toast.success("Sub category added");
+          setCategory("");
+          setSubcategory("");
+          setValue(" ");
         }
       })
       .catch((error) => {
@@ -79,21 +81,14 @@ const AddSubCategory = () => {
             onChange={(event) => setSubcategory(event.target.value)}
             required
           />
+          <p className="text-gray-400 text-xs">slug: {slugSlashRemove}</p>
           <label
             htmlFor="description"
             className="block font-medium text-gray-700 mt-4"
           >
             Enter a Description
           </label>
-          <textarea
-            type="text"
-            name="description"
-            id="description"
-            className="textarea textarea-bordered w-full"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-            required
-          ></textarea>
+          <Editor setValue={setValue} />
           <button
             type="submit"
             className="mt-4 inline-flex justify-center py-2 px-4 border border-transparent w-full shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

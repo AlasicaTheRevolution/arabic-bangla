@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import NahuSubCategory from "../Nahu/NahuSubCategory";
+import SubCategory from "../Nahu/SubCategory";
 import Navbar from "../Shared/Navbar/Navbar";
 
 function Sarf() {
@@ -28,7 +28,7 @@ function Sarf() {
               <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
               <ul className="menu p-4 px-[3px]  overflow-y-auto w-64 bg-base-100 text-base-content">
                 {subCategory.map((sb) => (
-                  <NahuSubCategory
+                  <SubCategory
                     sb={sb}
                     subCategory={subCategory}
                     setSubCategory={setSubCategory}

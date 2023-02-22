@@ -54,6 +54,16 @@ const DashboardNavbar = () => {
               <li className="font-sans list-none">
                 <CustomLink to="/books">Books</CustomLink>
               </li>
+              <li className="font-sans list-none">
+                <button
+                  className="btn btn-primary px-10 rounded-full text-white"
+                  onClick={() => {
+                    signOut(auth);
+                  }}
+                >
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
           <Link

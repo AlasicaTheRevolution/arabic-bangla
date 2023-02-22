@@ -14,6 +14,7 @@ import DashboardSarf from "./Pages/Dashboard/DashboardSarf";
 import DashboardBalaga from "./Pages/Dashboard/DashboardBalaga";
 import Sarf from "./Pages/Sarf/Sarf";
 import Balaga from "./Pages/Balaga/Balaga";
+import SubCategoryContent from "./Pages/SubCategoryContent/SubCategoryContent";
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/nahu" element={<Nahu />} />
+        <Route path="/nahu" element={<Nahu />}>
+          <Route path=":slug" element={<SubCategoryContent />} />
+        </Route>
         <Route path="/sarf" element={<Sarf />} />
         <Route path="/balaga" element={<Balaga />} />
         <Route

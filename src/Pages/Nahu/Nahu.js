@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
-import NahuSubCategory from "./NahuSubCategory";
+import SubCategory from "./SubCategory";
 
 function Nahu() {
   const [subCategory, setSubCategory] = useState([]);
@@ -15,7 +15,7 @@ function Nahu() {
   return (
     <div>
       <Navbar/>
-      <div className="min-h-screen pt-14">
+      <div className="min-h-screen pt-24">
         <div className="sub-category">
           <div className="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -26,10 +26,8 @@ function Nahu() {
               <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
               <ul className="menu p-4 px-[3px]  overflow-y-auto w-64 bg-base-100 text-base-content">
                 {subCategory.map((sb) => (
-                  <NahuSubCategory
+                  <SubCategory
                     sb={sb}
-                    subCategory={subCategory}
-                    setSubCategory={setSubCategory}
                     key={sb._id}
                   />
                 ))}
