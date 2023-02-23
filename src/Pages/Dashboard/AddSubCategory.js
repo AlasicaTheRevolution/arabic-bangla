@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import Editor from "../JoditEditor/JoditEditor";
+import Editor from "../Editor/Editor";
 
 const AddSubCategory = () => {
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const slugSpcaRemove = subcategory.toLowerCase().split(" ").join("-");
   const slugQuestionRemove = slugSpcaRemove.split("?").join("");
   const slugSlashRemove =
@@ -24,6 +24,7 @@ const AddSubCategory = () => {
       slug: slugSlashRemove,
     };
 
+    setLoading(false);
     fetch("http://localhost:5000/sub-category", {
       method: "POST",
       headers: {
@@ -38,17 +39,26 @@ const AddSubCategory = () => {
           setCategory("");
           setSubcategory("");
           setValue(" ");
+          setLoading(false);
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
+        toast.error(error);
       });
+    setLoading(false);
   }
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="mx-5">
       <h3 className="text-2xl font-bold mb-3 text-center">Add Sub-category</h3>
-      <div className="px-5 py-10 bg-white border rounded-lg">
+      <div className="px-5 py-10 bg-white border rounded-lg relative">
+        {loading ? (
+          <div class="bg-[#00000025] absolute right-0 left-0 bottom-0 top-0 z-50">
+            <div className="dots-3 absolute top-0 bottom-0 right-0 left-0 m-auto"></div>
+          </div>
+        ) : (
+          ""
+        )}
         <form onSubmit={handleSubmit} className="rounded-lg">
           <label htmlFor="category" className="block font-medium text-gray-700">
             Choose Category
@@ -89,7 +99,7 @@ const AddSubCategory = () => {
           >
             Enter a Description
           </label>
-          <Editor setValue={setValue} />
+          <Editor setValue={setValue} value={value} />
           <button
             type="submit"
             className="mt-4 inline-flex justify-center py-2 px-4 border border-transparent w-full shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

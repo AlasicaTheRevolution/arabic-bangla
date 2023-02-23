@@ -19,9 +19,17 @@ function Sarf() {
     <div>
       <Navbar />
       <div className="min-h-screen pt-24">
+        <div class="flex justify-center">
+          <label
+            htmlFor="my-drawer-3"
+            className="btn btn-accent text-white drawer-button mx-auto lg:hidden"
+          >
+            Open Sidebar
+          </label>
+        </div>
         <div className="sub-category">
           <div className="drawer drawer-mobile">
-            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+            <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content bg-[#F1F5F9] px-10">
               <Outlet />
             </div>
@@ -30,7 +38,10 @@ function Sarf() {
               <ul className="menu p-4 px-[3px]  overflow-y-auto w-64 bg-base-100 text-base-content">
                 {loading ? (
                   <div className="dots-3 top-0 bottom-0 left-0 right-0 m-auto"></div>
-                ) : subCategory.length > 0 ? (
+                ) : (
+                  ""
+                )}
+                {subCategory.length > 0 ? (
                   subCategory.map((sb) => <SubCategory sb={sb} key={sb._id} />)
                 ) : (
                   <h2 className="text-center">No content</h2>

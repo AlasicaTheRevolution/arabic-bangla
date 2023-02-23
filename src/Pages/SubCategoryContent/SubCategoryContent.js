@@ -8,7 +8,6 @@ const SubCategoryContent = () => {
   const { slug } = useParams();
   const [content, seContent] = useState({});
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     const dataFetch = async () => {
       setLoading(true);
@@ -27,6 +26,7 @@ const SubCategoryContent = () => {
     <div className="my-10 ">
       <h2 className="font-bold text-3xl mb-5">{subcategory}</h2>
       <div dangerouslySetInnerHTML={{__html: description}} ></div>
+    
     </div>
   );
 };

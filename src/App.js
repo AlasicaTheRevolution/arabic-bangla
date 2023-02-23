@@ -25,8 +25,12 @@ function App() {
         <Route path="/nahu" element={<Nahu />}>
           <Route path=":slug" element={<SubCategoryContent />} />
         </Route>
-        <Route path="/sarf" element={<Sarf />} />
-        <Route path="/balaga" element={<Balaga />} />
+        <Route path="/sarf" element={<Sarf />}>
+          <Route path=":slug" element={<SubCategoryContent />} />
+        </Route>
+        <Route path="/balaga" element={<Balaga />}>
+          <Route path=":slug" element={<SubCategoryContent />} />
+        </Route>
         <Route
           path="/dashboard"
           element={
