@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../Shared/Loader/Loader.css";
-import "./Content.css"
+import "./Content.module.css"
 
 const SubCategoryContent = () => {
   const { slug } = useParams();
@@ -23,7 +23,7 @@ const SubCategoryContent = () => {
   }
   const { subcategory, description } = content;
   return (
-    <div className="my-10 ">
+    <div className="my-10 sub-category-content">
       <h2 className="font-bold text-3xl mb-5">{subcategory}</h2>
       <div dangerouslySetInnerHTML={{__html: description}} ></div>
     

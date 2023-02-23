@@ -70,6 +70,13 @@ const Navbar = () => {
               <li className="font-sans list-none">
                 <CustomLink to="/books">Books</CustomLink>
               </li>
+              {user && (
+                <li className="px-3 font-sans list-none">
+                  <Link to="/dashboard" className="btn text-white rounded-full">
+                    Dashboard
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
           <Link
@@ -101,15 +108,12 @@ const Navbar = () => {
           <li className="px-3 font-sans list-none">
             <CustomLink to="/books">Books</CustomLink>
           </li>
-        </div>
-        <div className="navbar-end lg:hidden">
           {user && (
-            <Link
-              to="/dashboard"
-              className="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
-            >
-              ☰
-            </Link>
+            <li className="px-3 font-sans list-none">
+              <Link to="/dashboard" className="btn text-white rounded-full">
+                Dashboard
+              </Link>
+            </li>
           )}
         </div>
       </div>

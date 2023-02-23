@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 import SubCategory from "../SubCategory/SubCategory";
 
 function Nahu() {
   const [subCategory, setSubCategory] = useState([]);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate()
 
   useEffect(() => {
     const data = async () => {
@@ -19,7 +18,7 @@ function Nahu() {
     data();
   }, []);
 
-  console.log(subCategory)
+  console.log(subCategory);
   return (
     <div>
       <Navbar />
