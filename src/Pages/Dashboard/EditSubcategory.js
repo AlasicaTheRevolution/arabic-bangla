@@ -2,12 +2,13 @@ import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../Context/API_URL";
 import Loader from "../Shared/Loader/Loader";
 
 const EditSubcategory = () => {
   const navigate = useNavigate();
   const { data: categories, isLoading } = useQuery("categories", () =>
-    fetch("http://localhost:5000/sub-categories", {
+    fetch(`${API_URL}sub-categories`, {
       method: "GET",
     }).then((res) => res.json())
   );

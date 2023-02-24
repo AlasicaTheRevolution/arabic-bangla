@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { API_URL } from "../../Context/API_URL";
 
 const DashboardBalaga = () => {
   const [Sarf, setSarf] = useState({});
@@ -10,7 +11,7 @@ const DashboardBalaga = () => {
     const categories = async () => {
       setLoading(true);
       await axios
-        .get("http://localhost:5000/category/63f0af8f994071ed8e5ccda3")
+        .get(`${API_URL}category/63f0af8f994071ed8e5ccda3`)
         .then((res) => setSarf(res.data));
       setLoading(false);
     };
@@ -24,7 +25,7 @@ const DashboardBalaga = () => {
     };
     setLoading(true);
     await axios
-      .put("http://localhost:5000/category/63f0af8f994071ed8e5ccda3", data)
+      .put("${API_URL}category/63f0af8f994071ed8e5ccda3", data)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           toast.success("Successfully Updated");

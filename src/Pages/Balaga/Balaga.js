@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { API_URL } from "../../Context/API_URL";
 import Navbar from "../Shared/Navbar/Navbar";
 import SubCategory from "../SubCategory/SubCategory";
 
 function Balaga() {
   const [subCategory, setSubCategory] = useState([]);
   const [loading, setLoading] = useState(false);
+  
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/sub-category?category=balaga`)
+    fetch(`${API_URL}sub-category?category=balaga`)
       .then((res) => res.json())
       .then((data) => setSubCategory(data));
     setLoading(false);
@@ -19,7 +21,7 @@ function Balaga() {
     <div>
       <Navbar />
       <div className="min-h-screen pt-24">
-        <div class="flex justify-center">
+        <div className="flex justify-center">
           <label
             htmlFor="my-drawer-3"
             className="btn btn-accent text-white drawer-button mx-auto lg:hidden"
