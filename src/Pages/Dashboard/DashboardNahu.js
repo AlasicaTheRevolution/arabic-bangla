@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { API_URL } from "../../Context/API_URL";
 
 const DashboardNahu = () => {
   const [nahu, setNahu] = useState({});
@@ -11,7 +12,7 @@ const DashboardNahu = () => {
     const categories = async () => {
       setLoading(true);
       await axios
-        .get("http://localhost:5000/category/63f0aebe994071ed8e5ccda1")
+        .get(`${API_URL}category/63f0aebe994071ed8e5ccda1`)
         .then((res) => setNahu(res.data));
       setLoading(false);
     };
@@ -25,7 +26,7 @@ const DashboardNahu = () => {
     };
     setLoading(true);
     await axios
-      .put("http://localhost:5000/category/63f0aebe994071ed8e5ccda1", data)
+      .put(`${API_URL}category/63f0aebe994071ed8e5ccda1`, data)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           toast.success("Successfully Updated");

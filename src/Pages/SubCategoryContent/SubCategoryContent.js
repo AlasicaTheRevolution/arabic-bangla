@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { API_URL } from "../../Context/API_URL";
 import "../Shared/Loader/Loader.css";
 import "./Content.module.css"
 
@@ -12,7 +13,7 @@ const SubCategoryContent = () => {
     const dataFetch = async () => {
       setLoading(true);
       await axios
-        .get(`http://localhost:5000/sub-category/${slug}`)
+        .get(`${API_URL}sub-category/${slug}`)
         .then((res) => seContent(res.data));
       setLoading(false);
     };

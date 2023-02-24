@@ -3,6 +3,7 @@ import React from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
+import { API_URL } from "../../Context/API_URL";
 import Loader from "../Shared/Loader/Loader";
 
 const DeleteSubcategory = () => {
@@ -11,7 +12,7 @@ const DeleteSubcategory = () => {
     isLoading,
     refetch,
   } = useQuery("categories", () =>
-    fetch("http://localhost:5000/sub-categories", {
+    fetch(`${API_URL}sub-categories`, {
       method: "GET",
     }).then((res) => res.json())
   );
@@ -43,7 +44,7 @@ const DeleteSubcategory = () => {
                     onClick={() => {
                       axios
                         .delete(
-                          `http://localhost:5000/delete-sub-category/${category._id}`
+                          `${API_URL}delete-sub-category/${category._id}`
                         )
                         .then((res) => {
                           if (res.data.deletedCount > 0) {

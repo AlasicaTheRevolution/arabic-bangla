@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { API_URL } from "../../Context/API_URL";
 import Navbar from "../Shared/Navbar/Navbar";
 import SubCategory from "../SubCategory/SubCategory";
 
@@ -10,7 +11,7 @@ function Nahu() {
   useEffect(() => {
     const data = async () => {
       setLoading(true);
-      await fetch(`http://localhost:5000/sub-category?category=nahu`)
+      await fetch(`${API_URL}sub-category?category=nahu`)
         .then((res) => res.json())
         .then((data) => setSubCategory(data));
       setLoading(false);
@@ -23,7 +24,7 @@ function Nahu() {
     <div>
       <Navbar />
       <div className="min-h-screen pt-24">
-        <div class="flex justify-center">
+        <div className="flex justify-center">
           <label
             htmlFor="my-drawer-3"
             className="btn btn-accent text-white drawer-button mx-auto lg:hidden"

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { API_URL } from "../../Context/API_URL";
 import Editor from "../Editor/Editor";
 
 const AddSubCategory = () => {
@@ -25,7 +26,7 @@ const AddSubCategory = () => {
     };
 
     setLoading(false);
-    fetch("http://localhost:5000/sub-category", {
+    fetch(`${API_URL}sub-category`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +53,7 @@ const AddSubCategory = () => {
     <div className="mx-5">
       <h3 className="text-2xl font-bold mb-3 text-center">Add Sub-category</h3>
       <div className="px-5 py-10 bg-white border rounded-lg relative">
-        {loading ? <div class="bg-[#00000025] absolute right-0 left-0 bottom-0 top-0 z-50">
+        {loading ? <div className="bg-[#00000025] absolute right-0 left-0 bottom-0 top-0 z-50">
           <div className="dots-3 absolute top-0 bottom-0 right-0 left-0 m-auto"></div>
         </div> : ""}
         <form onSubmit={handleSubmit} className="rounded-lg">
