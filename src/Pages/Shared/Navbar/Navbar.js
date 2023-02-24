@@ -20,13 +20,13 @@ const Navbar = () => {
   const isSticky = (e) => {
     const header = document.querySelector(".navbar");
     const scrollTop = window.scrollY;
-    scrollTop >= 80
+    scrollTop >= 10
       ? header.classList.add("is-sticky")
       : header.classList.remove("is-sticky");
   };
   return (
     <div>
-      <div className="navbar bg-base-100 py-5 bg-transparent fixed justify-between">
+      <div className="z-50 navbar bg-base-100 py-5 bg-transparent fixed justify-between">
         <div>
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -70,6 +70,13 @@ const Navbar = () => {
               <li className="font-sans list-none">
                 <CustomLink to="/books">Books</CustomLink>
               </li>
+              {user && (
+                <li className="px-3 font-sans list-none">
+                  <Link to="/dashboard" className="btn text-white rounded-full">
+                    Dashboard
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
           <Link
@@ -101,15 +108,12 @@ const Navbar = () => {
           <li className="px-3 font-sans list-none">
             <CustomLink to="/books">Books</CustomLink>
           </li>
-        </div>
-        <div class="navbar-end lg:hidden">
           {user && (
-            <Link
-              to="/dashboard"
-              class="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
-            >
-              ☰
-            </Link>
+            <li className="px-3 font-sans list-none">
+              <Link to="/dashboard" className="btn text-white rounded-full">
+                Dashboard
+              </Link>
+            </li>
           )}
         </div>
       </div>

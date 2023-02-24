@@ -9,6 +9,15 @@ import AddSubCategory from "./Pages/Dashboard/AddSubCategory";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RequireAuth from "./Pages/RequireAuth/RequireAuth";
+import DashboardNahu from "./Pages/Dashboard/DashboardNahu";
+import DashboardSarf from "./Pages/Dashboard/DashboardSarf";
+import DashboardBalaga from "./Pages/Dashboard/DashboardBalaga";
+import Sarf from "./Pages/Sarf/Sarf";
+import Balaga from "./Pages/Balaga/Balaga";
+import SubCategoryContent from "./Pages/SubCategoryContent/SubCategoryContent";
+import DeleteSubcategory from "./Pages/Dashboard/DeleteSubcategory";
+import EditSubcategory from "./Pages/Dashboard/EditSubcategory";
+import EditSubcategoryContent from "./Pages/Dashboard/EditSubcategoryContent";
 
 function App() {
   return (
@@ -16,7 +25,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/nahu" element={<Nahu />} />
+        <Route path="/nahu" element={<Nahu />}>
+          <Route path=":slug" element={<SubCategoryContent />} />
+        </Route>
+        <Route path="/sarf" element={<Sarf />}>
+          <Route path=":slug" element={<SubCategoryContent />} />
+        </Route>
+        <Route path="/balaga" element={<Balaga />}>
+          <Route path=":slug" element={<SubCategoryContent />} />
+        </Route>
         <Route
           path="/dashboard"
           element={
@@ -27,6 +44,12 @@ function App() {
         >
           <Route index element={<DashboardHome />} />
           <Route path="add-subcategory" element={<AddSubCategory />} />
+          <Route path="delete-subcategory" element={<DeleteSubcategory />} />
+          <Route path="edit-subcategory" element={<EditSubcategory />} />
+          <Route path="edit-subcategory/:slug" element={<EditSubcategoryContent />} />
+          <Route path="nahu" element={<DashboardNahu />} />
+          <Route path="sarf" element={<DashboardSarf />} />
+          <Route path="balaga" element={<DashboardBalaga />} />
         </Route>
       </Routes>
       <ToastContainer

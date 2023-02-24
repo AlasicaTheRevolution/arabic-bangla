@@ -1,26 +1,46 @@
 import React from "react";
-import {  Outlet } from "react-router-dom";
-import { FaHome, FaRegClone } from "react-icons/fa";
+import { Outlet } from "react-router-dom";
 import DashboardNavbar from "./DashboardNavbar";
 import ActiveLink from "./ActiveLink";
 
 const AdminDashboard = () => {
   return (
-    <div class="dashboard">
+    <div className="dashboard">
       <DashboardNavbar />
-      <div class="drawer drawer-mobile">
-        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content bg-[#F1F5F9] pt-10">
+      <div className="drawer drawer-mobile">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content bg-[#F1F5F9] pt-10">
           <Outlet />
         </div>
-        <div class="drawer-side">
-          <label for="my-drawer-2" class="drawer-overlay"></label>
-          <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
+        <div className="drawer-side">
+          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+          <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             <li>
-              <ActiveLink to="/dashboard"><FaHome/>Home</ActiveLink>
+              <ActiveLink to="/dashboard">Home</ActiveLink>
             </li>
             <li>
-              <ActiveLink to="/dashboard/add-subcategory"><FaRegClone/> Add Subcategory</ActiveLink>
+              <ActiveLink to="/dashboard/nahu">Nahu</ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="/dashboard/sarf">Sarf</ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="/dashboard/balaga">Balaga</ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="/dashboard/add-subcategory">
+                Add Subcategory
+              </ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="/dashboard/delete-subcategory">
+                Delete Subcategory
+              </ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="/dashboard/edit-subcategory">
+                Edit Subcategory
+              </ActiveLink>
             </li>
           </ul>
         </div>

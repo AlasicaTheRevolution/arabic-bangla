@@ -54,6 +54,16 @@ const DashboardNavbar = () => {
               <li className="font-sans list-none">
                 <CustomLink to="/books">Books</CustomLink>
               </li>
+              <li className="font-sans list-none">
+                <button
+                  className="btn btn-primary px-10 rounded-full text-white"
+                  onClick={() => {
+                    signOut(auth);
+                  }}
+                >
+                  Logout
+                </button>
+              </li>
             </ul>
           </div>
           <Link
@@ -96,11 +106,11 @@ const DashboardNavbar = () => {
             </button>
           </li>
         </div>
-        <div class="navbar-end lg:hidden">
+        <div className="navbar-end lg:hidden">
           {user && (
             <label
-              for="my-drawer-2"
-              class="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
+              htmlFor="my-drawer-2"
+              className="btn btn-accent text-white drawer-button m-0 lg:hidden lg:ml-10"
             >
               ☰
             </label>

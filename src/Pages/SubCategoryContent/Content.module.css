@@ -1,0 +1,24 @@
+.sub-category-content td,
+.sub-category-content th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.sub-category-content tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.sub-category-content tr:hover {
+  background-color: #ddd;
+}
+
+.sub-category-content th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+li{
+  list-style: disc;
+}
