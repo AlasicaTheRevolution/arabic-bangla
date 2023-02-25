@@ -9,7 +9,7 @@ function Balaga() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/sub-category?category=balaga`)
+    fetch(`https://arabic-bangla-backend.onrender.com/sub-category?category=balaga`)
       .then((res) => res.json())
       .then((data) => setSubCategory(data));
     setLoading(false);

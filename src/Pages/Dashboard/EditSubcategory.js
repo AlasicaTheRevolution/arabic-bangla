@@ -7,7 +7,7 @@ import Loader from "../Shared/Loader/Loader";
 const EditSubcategory = () => {
   const navigate = useNavigate();
   const { data: categories, isLoading } = useQuery("categories", () =>
-    fetch("http://localhost:5000/sub-categories", {
+    fetch("https://arabic-bangla-backend.onrender.com/sub-categories", {
       method: "GET",
     }).then((res) => res.json())
   );

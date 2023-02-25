@@ -13,13 +13,13 @@ const Category = () => {
     const categories = async () => {
       setLoading(true);
       await axios
-        .get("http://localhost:5000/category/63f0aebe994071ed8e5ccda1")
+        .get("https://arabic-bangla-backend.onrender.com/category/63f0aebe994071ed8e5ccda1")
         .then((res) => setNahu(res.data));
       await axios
-        .get("http://localhost:5000/category/63f0af63994071ed8e5ccda2")
+        .get("https://arabic-bangla-backend.onrender.com/category/63f0af63994071ed8e5ccda2")
         .then((res) => setSarf(res.data));
       await axios
-        .get("http://localhost:5000/category/63f0af8f994071ed8e5ccda3")
+        .get("https://arabic-bangla-backend.onrender.com/category/63f0af8f994071ed8e5ccda3")
         .then((res) => setBalaga(res.data));
       setLoading(false);
     };

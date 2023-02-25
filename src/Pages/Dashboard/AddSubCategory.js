@@ -25,7 +25,7 @@ const AddSubCategory = () => {
     };
 
     setLoading(false);
-    fetch("http://localhost:5000/sub-category", {
+    fetch("https://arabic-bangla-backend.onrender.com/sub-category", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -10,7 +10,7 @@ function Nahu() {
   useEffect(() => {
     const data = async () => {
       setLoading(true);
-      await fetch(`http://localhost:5000/sub-category?category=nahu`)
+      await fetch(`https://arabic-bangla-backend.onrender.com/sub-category?category=nahu`)
         .then((res) => res.json())
         .then((data) => setSubCategory(data));
       setLoading(false);

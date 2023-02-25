@@ -12,7 +12,7 @@ const EditSubcategoryContent = () => {
   useEffect(() => {
     const data = async () => {
       setLoading(true);
-      await fetch(`http://localhost:5000/sub-category/${slug}`, {
+      await fetch(`https://arabic-bangla-backend.onrender.com/sub-category/${slug}`, {
         method: "GET",
       })
         .then((res) => res.json())
@@ -39,7 +39,7 @@ const EditSubcategoryContent = () => {
     };
 
     setLoading(false);
-    fetch(`http://localhost:5000/update-sub-category/${slug}`, {
+    fetch(`https://arabic-bangla-backend.onrender.com/update-sub-category/${slug}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

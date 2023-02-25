@@ -10,7 +10,7 @@ const DashboardBalaga = () => {
     const categories = async () => {
       setLoading(true);
       await axios
-        .get("http://localhost:5000/category/63f0af8f994071ed8e5ccda3")
+        .get("https://arabic-bangla-backend.onrender.com/category/63f0af8f994071ed8e5ccda3")
         .then((res) => setSarf(res.data));
       setLoading(false);
     };
@@ -24,7 +24,7 @@ const DashboardBalaga = () => {
     };
     setLoading(true);
     await axios
-      .put("http://localhost:5000/category/63f0af8f994071ed8e5ccda3", data)
+      .put("https://arabic-bangla-backend.onrender.com/category/63f0af8f994071ed8e5ccda3", data)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           toast.success("Successfully Updated");

@@ -12,7 +12,7 @@ const SubCategoryContent = () => {
     const dataFetch = async () => {
       setLoading(true);
       await axios
-        .get(`http://localhost:5000/sub-category/${slug}`)
+        .get(`https://arabic-bangla-backend.onrender.com/sub-category/${slug}`)
         .then((res) => seContent(res.data));
       setLoading(false);
     };

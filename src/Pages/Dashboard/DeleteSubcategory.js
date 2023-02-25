@@ -11,7 +11,7 @@ const DeleteSubcategory = () => {
     isLoading,
     refetch,
   } = useQuery("categories", () =>
-    fetch("http://localhost:5000/sub-categories", {
+    fetch("https://arabic-bangla-backend.onrender.com/sub-categories", {
       method: "GET",
     }).then((res) => res.json())
   );
@@ -43,7 +43,7 @@ const DeleteSubcategory = () => {
                     onClick={() => {
                       axios
                         .delete(
-                          `http://localhost:5000/delete-sub-category/${category._id}`
+                          `https://arabic-bangla-backend.onrender.com/delete-sub-category/${category._id}`
                         )
                         .then((res) => {
                           if (res.data.deletedCount > 0) {
