@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { API_URL } from "../../Context/API_URL";
 import "../Shared/Loader/Loader.css";
 
 const Category = () => {
@@ -14,13 +13,13 @@ const Category = () => {
     const categories = async () => {
       setLoading(true);
       await axios
-        .get(`${API_URL}category/63f0aebe994071ed8e5ccda1`)
+        .get("https://arabic-bangla-backend.onrender.com/category/63f0aebe994071ed8e5ccda1")
         .then((res) => setNahu(res.data));
       await axios
-        .get(`${API_URL}category/63f0af63994071ed8e5ccda2`)
+        .get("https://arabic-bangla-backend.onrender.com/category/63f0af63994071ed8e5ccda2")
         .then((res) => setSarf(res.data));
       await axios
-        .get(`${API_URL}category/63f0af8f994071ed8e5ccda3`)
+        .get("https://arabic-bangla-backend.onrender.com/category/63f0af8f994071ed8e5ccda3")
         .then((res) => setBalaga(res.data));
       setLoading(false);
     };

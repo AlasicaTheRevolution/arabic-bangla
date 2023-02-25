@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { API_URL } from "../../Context/API_URL";
 import Navbar from "../Shared/Navbar/Navbar";
 import SubCategory from "../SubCategory/SubCategory";
 
@@ -10,7 +9,7 @@ function Sarf() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`${API_URL}sub-category?category=sarf`)
+    fetch(`https://arabic-bangla-backend.onrender.com/sub-category?category=sarf`)
       .then((res) => res.json())
       .then((data) => setSubCategory(data));
     setLoading(false);
@@ -20,7 +19,7 @@ function Sarf() {
     <div>
       <Navbar />
       <div className="min-h-screen pt-24">
-        <div className="flex justify-center">
+        <div class="flex justify-center">
           <label
             htmlFor="my-drawer-3"
             className="btn btn-accent text-white drawer-button mx-auto lg:hidden"

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { API_URL } from "../../Context/API_URL";
 import EditCategoryEditor from "./EditCategoryEditor";
 
 const EditSubcategoryContent = () => {
@@ -13,7 +12,7 @@ const EditSubcategoryContent = () => {
   useEffect(() => {
     const data = async () => {
       setLoading(true);
-      await fetch(`${API_URL}sub-category/${slug}`, {
+      await fetch(`https://arabic-bangla-backend.onrender.com/sub-category/${slug}`, {
         method: "GET",
       })
         .then((res) => res.json())
@@ -40,7 +39,7 @@ const EditSubcategoryContent = () => {
     };
 
     setLoading(false);
-    fetch(`${API_URL}update-sub-category/${slug}`, {
+    fetch(`https://arabic-bangla-backend.onrender.com/update-sub-category/${slug}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +63,7 @@ const EditSubcategoryContent = () => {
       <h3 className="text-2xl font-bold mb-3 text-center">Add Sub-category</h3>
       <div className="px-5 py-10 bg-white border rounded-lg relative">
         {loading ? (
-          <div className="bg-[#00000025] absolute right-0 left-0 bottom-0 top-0 z-50">
+          <div class="bg-[#00000025] absolute right-0 left-0 bottom-0 top-0 z-50">
             <div className="dots-3 absolute top-0 bottom-0 right-0 left-0 m-auto"></div>
           </div>
         ) : (

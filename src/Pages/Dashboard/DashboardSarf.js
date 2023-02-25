@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { API_URL } from "../../Context/API_URL";
 
 const DashboardSarf = () => {
   const [Sarf, setSarf] = useState({});
@@ -11,7 +10,7 @@ const DashboardSarf = () => {
     const categories = async () => {
       setLoading(true);
       await axios
-        .get(`${API_URL}category/63f0af63994071ed8e5ccda2`)
+        .get("https://arabic-bangla-backend.onrender.com/category/63f0af63994071ed8e5ccda2")
         .then((res) => setSarf(res.data));
       setLoading(false);
     };
@@ -25,7 +24,7 @@ const DashboardSarf = () => {
     };
     setLoading(true);
     await axios
-      .put(`${API_URL}category/63f0af63994071ed8e5ccda2`, data)
+      .put("https://arabic-bangla-backend.onrender.com/category/63f0af63994071ed8e5ccda2", data)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           toast.success("Successfully Updated");
