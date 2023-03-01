@@ -18,6 +18,7 @@ import SubCategoryContent from "./Pages/SubCategoryContent/SubCategoryContent";
 import DeleteSubcategory from "./Pages/Dashboard/DeleteSubcategory";
 import EditSubcategory from "./Pages/Dashboard/EditSubcategory";
 import EditSubcategoryContent from "./Pages/Dashboard/EditSubcategoryContent";
+import Footer from "./Pages/Shared/Footer/Footer";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route path="balaga" element={<DashboardBalaga />} />
         </Route>
       </Routes>
+      <Footer/>
       <ToastContainer
         position="top-center"
         autoClose={5000}

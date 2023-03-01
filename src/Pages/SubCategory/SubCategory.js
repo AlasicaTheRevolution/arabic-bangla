@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const SubCategory = ({ sb }) => {
   return (
-    <li>
+    <li className="list-none inline-block">
       <Link to={`/${sb.category}/${sb.slug}`}>{sb.subcategory}</Link>
     </li>
   );
