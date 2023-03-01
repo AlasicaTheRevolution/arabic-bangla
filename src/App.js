@@ -19,11 +19,13 @@ import DeleteSubcategory from "./Pages/Dashboard/DeleteSubcategory";
 import EditSubcategory from "./Pages/Dashboard/EditSubcategory";
 import EditSubcategoryContent from "./Pages/Dashboard/EditSubcategoryContent";
 import Footer from "./Pages/Shared/Footer/Footer";
+import NotFound from "./Pages/Shared/404/NotFound";
 
 function App() {
   return (
     <div>
       <Routes>
+        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/nahu" element={<Nahu />}>
@@ -47,13 +49,16 @@ function App() {
           <Route path="add-subcategory" element={<AddSubCategory />} />
           <Route path="delete-subcategory" element={<DeleteSubcategory />} />
           <Route path="edit-subcategory" element={<EditSubcategory />} />
-          <Route path="edit-subcategory/:slug" element={<EditSubcategoryContent />} />
+          <Route
+            path="edit-subcategory/:slug"
+            element={<EditSubcategoryContent />}
+          />
           <Route path="nahu" element={<DashboardNahu />} />
           <Route path="sarf" element={<DashboardSarf />} />
           <Route path="balaga" element={<DashboardBalaga />} />
         </Route>
       </Routes>
-      <Footer/>
+      <Footer />
       <ToastContainer
         position="top-center"
         autoClose={5000}

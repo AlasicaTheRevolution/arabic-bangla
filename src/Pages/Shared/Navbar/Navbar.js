@@ -61,7 +61,7 @@ const Navbar = () => {
               <li className="font-sans list-none">
                 <CustomLink to="/balaga">Balaga</CustomLink>
               </li>
-              <li className="font-sans list-none">
+              {/* <li className="font-sans list-none">
                 <CustomLink to="/blogs">Blogs</CustomLink>
               </li>
               <li className="font-sans list-none">
@@ -69,7 +69,7 @@ const Navbar = () => {
               </li>
               <li className="font-sans list-none">
                 <CustomLink to="/books">Books</CustomLink>
-              </li>
+              </li> */}
               {user && (
                 <li className="px-3 font-sans list-none">
                   <Link to="/dashboard" className="btn text-white rounded-full">
@@ -99,7 +99,7 @@ const Navbar = () => {
           <li className="px-3 font-sans list-none">
             <CustomLink to="/balaga">Balaga</CustomLink>
           </li>
-          <li className="px-3 font-sans list-none">
+          {/* <li className="px-3 font-sans list-none">
             <CustomLink to="/blogs">Blogs</CustomLink>
           </li>
           <li className="px-3 font-sans list-none">
@@ -107,7 +107,7 @@ const Navbar = () => {
           </li>
           <li className="px-3 font-sans list-none">
             <CustomLink to="/books">Books</CustomLink>
-          </li>
+          </li> */}
           {user && (
             <li className="px-3 font-sans list-none">
               <Link to="/dashboard" className="btn text-white rounded-full">
