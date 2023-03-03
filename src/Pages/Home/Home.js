@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../Shared/Navbar/Navbar";
 import Category from "./Category";
 import "./Home.css";
 
 function Home() {
   return (
     <div>
-      <Navbar />
       <div className="home-bg bg-[#FFF4A3]">
         <div className="hero lg:h-[100vh] h-[80vh]">
           <div className="hero-content text-center text-neutral-content z-10">

@@ -1,12 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import DashboardNavbar from "./DashboardNavbar";
 import ActiveLink from "./ActiveLink";
 
 const AdminDashboard = () => {
   return (
     <div className="dashboard">
-      <DashboardNavbar />
+      <div className="h-20"></div>
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content bg-[#F1F5F9] pt-10">
@@ -17,6 +16,9 @@ const AdminDashboard = () => {
           <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             <li>
               <ActiveLink to="/dashboard">Home</ActiveLink>
+            </li>
+            <li>
+              <ActiveLink to="/dashboard/navbar-edit">Navbar</ActiveLink>
             </li>
             <li>
               <ActiveLink to="/dashboard/nahu">Nahu</ActiveLink>

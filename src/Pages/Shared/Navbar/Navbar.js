@@ -4,9 +4,14 @@ import auth from "../../../firebase.init";
 import CustomLink from "../../CustomLink/CustomLink";
 import "./Navbar.css";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useState } from "react";
+import axios from "axios";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const [loading, setLoading] = useState(false);
+  const [menus, setMenus] = useState([]);
 
   // Sticky Menu Area
   useEffect(() => {
@@ -24,6 +29,19 @@ const Navbar = () => {
       ? header.classList.add("is-sticky")
       : header.classList.remove("is-sticky");
   };
+  useEffect(() => {
+    const categories = async () => {
+      setLoading(true);
+      await axios
+        .get("https://arabic-bangla-backend.onrender.com/menus")
+        .then((res) => setMenus(res.data));
+      setLoading(false);
+    };
+    categories();
+  }, []);
+  if (loading) {
+    return <div className="dots-3 top-0 bottom-0 left-0 right-0 m-auto "></div>;
+  }
   return (
     <div>
       <div className="z-50 navbar bg-base-100 py-5 bg-transparent fixed justify-between">
@@ -49,32 +67,28 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li className="font-sans list-none">
-                <CustomLink to="/">Home</CustomLink>
-              </li>
-              <li className="font-sans list-none">
-                <CustomLink to="/nahu">Nahu</CustomLink>
-              </li>
-              <li className="font-sans list-none">
-                <CustomLink to="/sarf">Sarf</CustomLink>
-              </li>
-              <li className="font-sans list-none">
-                <CustomLink to="/balaga">Balaga</CustomLink>
-              </li>
-              {/* <li className="font-sans list-none">
-                <CustomLink to="/blogs">Blogs</CustomLink>
-              </li>
-              <li className="font-sans list-none">
-                <CustomLink to="/uses">Uses</CustomLink>
-              </li>
-              <li className="font-sans list-none">
-                <CustomLink to="/books">Books</CustomLink>
-              </li> */}
+              {menus.map((menu) => (
+                <li className="px-3 font-sans list-none">
+                  <CustomLink to={menu.link}>{menu.name}</CustomLink>
+                </li>
+              ))}
               {user && (
                 <li className="px-3 font-sans list-none">
                   <Link to="/dashboard" className="btn text-white rounded-full">
                     Dashboard
                   </Link>
+                </li>
+              )}
+              {user && (
+                <li className="px-3 font-sans list-none">
+                  <button
+                    className="btn btn-primary px-10 rounded-full text-white"
+                    onClick={() => {
+                      signOut(auth);
+                    }}
+                  >
+                    Logout
+                  </button>
                 </li>
               )}
             </ul>
@@ -87,32 +101,31 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="hidden lg:flex items-center">
-          <li className="px-3 font-sans list-none">
-            <CustomLink to="/">Home</CustomLink>
-          </li>
-          <li className="px-3 font-sans list-none">
-            <CustomLink to="/nahu">Nahu</CustomLink>
-          </li>
-          <li className="px-3 font-sans list-none">
-            <CustomLink to="/sarf">Sarf</CustomLink>
-          </li>
-          <li className="px-3 font-sans list-none">
-            <CustomLink to="/balaga">Balaga</CustomLink>
-          </li>
-          {/* <li className="px-3 font-sans list-none">
-            <CustomLink to="/blogs">Blogs</CustomLink>
-          </li>
-          <li className="px-3 font-sans list-none">
-            <CustomLink to="/uses">Uses</CustomLink>
-          </li>
-          <li className="px-3 font-sans list-none">
-            <CustomLink to="/books">Books</CustomLink>
-          </li> */}
+          {menus.map((menu) => (
+            <li
+              className="px-3 font-sans list-none tooltip tooltip-bottom"
+              data-tip={menu?.tooltip}
+            >
+              <CustomLink to={menu.link}>{menu.name}</CustomLink>
+            </li>
+          ))}
           {user && (
             <li className="px-3 font-sans list-none">
               <Link to="/dashboard" className="btn text-white rounded-full">
                 Dashboard
               </Link>
+            </li>
+          )}
+          {user && (
+            <li className="px-3 font-sans list-none">
+              <button
+                className="btn btn-primary rounded-full text-white"
+                onClick={() => {
+                  signOut(auth);
+                }}
+              >
+                Logout
+              </button>
             </li>
           )}
         </div>

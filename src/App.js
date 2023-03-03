@@ -20,10 +20,13 @@ import EditSubcategory from "./Pages/Dashboard/EditSubcategory";
 import EditSubcategoryContent from "./Pages/Dashboard/EditSubcategoryContent";
 import Footer from "./Pages/Shared/Footer/Footer";
 import NotFound from "./Pages/Shared/404/NotFound";
+import NavbarEdit from "./Pages/Dashboard/NavbarEdit";
+import Navbar from "./Pages/Shared/Navbar/Navbar";
 
 function App() {
   return (
     <div>
+      <Navbar/>
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
@@ -46,6 +49,7 @@ function App() {
           }
         >
           <Route index element={<DashboardHome />} />
+          <Route path="navbar-edit" element={<NavbarEdit />} />
           <Route path="add-subcategory" element={<AddSubCategory />} />
           <Route path="delete-subcategory" element={<DeleteSubcategory />} />
           <Route path="edit-subcategory" element={<EditSubcategory />} />

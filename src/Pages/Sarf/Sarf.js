@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../Shared/Navbar/Navbar";
 import SubCategory from "../SubCategory/SubCategory";
 
 function Sarf() {
@@ -22,7 +21,6 @@ function Sarf() {
 
   return (
     <div>
-      <Navbar />
       <div className="min-h-screen pt-24">
         <ul class="lg:hidden w-full text-center px-2">
           {loading ? (
